@@ -1,0 +1,242 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: #007acc;
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Navigation Styling */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #005c99;
+    padding: 10px;
+}
+
+.cart-link {
+    color: #fff;
+    margin: 0 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cart-link:hover {
+    color: #ffeb3b;
+}
+
+/* Shop Section Styling */
+#shopSection, #cartSection {
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Product List Styling */
+#productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.product {
+    background-color: #f1f5f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product p {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.product button {
+    padding: 8px 12px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #005c99;
+}
+
+/* Search Bar Styling */
+#searchInput {
+    width: calc(100% - 100px);
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[onclick="searchProducts()"] {
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button[onclick="searchProducts()"]:hover {
+    background-color: #005c99;
+}
+
+/* Cart Section Styling */
+#cartSection h2 {
+    font-size: 1.5em;
+    color: #007acc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #007acc;
+    color: #fff;
+}
+
+td img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+#cartTotal {
+    font-weight: bold;
+    color: #007acc;
+    font-size: 1.2em;
+}
+
+button[onclick*="removeFromCart"] {
+    padding: 5px 8px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+button[onclick*="removeFromCart"]:hover {
+    background-color: #e64a19;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #productList {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #searchInput, button[onclick="searchProducts()"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #shopSection, #cartSection {
+        width: 95%;
+    }
+}
+/* Toast Notification Styling */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #007acc;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast.hide {
+    opacity: 0;
+}
